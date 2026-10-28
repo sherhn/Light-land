@@ -1,1 +1,1 @@
-Language marks from https://github.com/simple-icons/simple-icons (CC0-1.0). Lisp, assembler and reStructuredText marks are local typographic symbols. Marks identify languages, not affiliation.
+Language marks from https://github.com/simple-icons/simple-icons (CC0-1.0). Lisp, assembler, reStructuredText, JavaScript and Docker marks are local typographic symbols; the JavaScript and Docker covers come from the Light module registry (MIT). Marks identify languages and tools, not affiliation.
