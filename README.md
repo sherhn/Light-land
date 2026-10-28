@@ -9,4 +9,4 @@
 Сайт распространяется по лицензии [MIT](LICENSE), кроме сторонних ресурсов:
 
 - шрифты Inter и JetBrains Mono — SIL Open Font License 1.1 ([Inter](assets/Inter-OFL.txt), [JetBrains Mono](assets/JetBrainsMono-OFL.txt));
-- значки языков из [Simple Icons](https://github.com/simple-icons/simple-icons) — CC0 1.0 ([текст лицензии](assets/modules/SimpleIcons-LICENSE.md)).
+- знаки на обложках модулей: логотип HTML5 (W3C) — CC BY 3.0, логотипы CSS и Markdown — CC0 1.0 ([подробности](assets/modules/README.md)).
