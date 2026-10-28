@@ -1,5 +1,7 @@
-name: Publish website manually
+name: Publish website
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
@@ -16,10 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Collect site files
+        run: |
+          mkdir _site
+          git ls-files -z | grep -zvE '^(\.|README\.md$|CNAME$)' | xargs -0 cp --parents -t _site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v5
