@@ -21,3 +21,6 @@
 .style-editorial .module-card details[open]{border-top:1px solid #4b5e4b;padding-top:22px}
 .style-editorial .module-card details ul{color:#c4cfc7}
 @media(max-width:760px){.style-editorial .module-card{min-height:320px}.style-editorial .module-card h2{font-size:38px}.style-editorial .module-body{padding:25px}.style-editorial .module-card p{min-height:0;max-width:95%}.style-editorial .module-card#restructuredtext h2{font-size:31px}}
+
+/* Vector marks shared with the IDE. */
+.style-editorial .module-art.native-mark{display:flex;align-items:flex-start;justify-content:flex-end;padding:68px 24px;pointer-events:none}.style-editorial .module-art.native-mark img{width:110px;height:110px;object-fit:contain;filter:brightness(0) invert(1);opacity:.25}.module-install{display:inline-block;margin-top:27px;font-size:12px}

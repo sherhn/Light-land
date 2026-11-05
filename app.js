@@ -1,12 +1,12 @@
 const copy = {
   ru: {
-    more:'Подробнее',less:'Свернуть',skip:'К содержимому',title:'Light — открытая IDE',description:'Light — открытая IDE с языковыми модулями, встроенным Git и Linux через WSL.',navFeatures:'Возможности',getLight:'Получить Light',heroLine1:'Открытая IDE',heroLine2:'Гибкость в модулях',heroText:'Языковые модули, Git и Linux<br>в одной среде.',explore:'Посмотреть ближе',featuresLabel:'Возможности',modulesTitle:'Модули',modulesShort:'Языки под задачу.',modulesText:'Подключайте языки, команды запуска и шаблоны прямо в IDE.',gitTitle:'Git',gitShort:'История без переключений.',gitText:'Ветки, diff и коммиты внутри Light. Локальные снимки — даже без Git.',linuxTitle:'Linux',linuxShort:'Прямо в Windows.',linuxText:'Терминал, сборка и запуск через WSL. В контексте вашего проекта.',workbenchLabel:'Рабочая среда',modulesTab:'Модули',lightTab:'Светлая тема',documentation:'Документация',downloadLabel:'Скачать Light',downloadTitle:'Скачать Light',architecture:'Процессор',releaseFiles:'Все файлы версии 1.0.0',downloadFor:'Скачать для',feedback:'Обратная связь',backTop:'Наверх',editorAlt:'Light: редактор и встроенный терминал',modulesAlt:'Каталог языковых модулей Light',lightAlt:'Светлая тема Light',navLabel:'Навигация',langLabel:'Язык',platformLabel:'Платформа',screensLabel:'Скриншоты IDE'
+    more:'Подробнее',less:'Свернуть',skip:'К содержимому',title:'Light — открытая IDE',description:'Light — открытая IDE с языковыми модулями, встроенным Git и Linux через WSL.',navFeatures:'Возможности',getLight:'Получить Light',heroLine1:'Открытая IDE',heroLine2:'Гибкость в модулях',heroText:'Языковые модули, Git и Linux<br>в одной среде.',explore:'Посмотреть ближе',featuresLabel:'Возможности',modulesTitle:'Модули',modulesShort:'Языки под задачу.',modulesText:'Подключайте языки, команды запуска и шаблоны прямо в IDE.',gitTitle:'Git',gitShort:'История без переключений.',gitText:'Ветки, diff и коммиты внутри Light. Локальные снимки — даже без Git.',linuxTitle:'Linux',linuxShort:'Прямо в Windows.',linuxText:'Терминал, сборка и запуск через WSL. В контексте вашего проекта.',workbenchLabel:'Рабочая среда',modulesTab:'Модули',lightTab:'Светлая тема',documentation:'Документация',downloadLabel:'Скачать Light',downloadTitle:'Скачать Light',architecture:'Процессор',releaseFiles:'Все файлы версии {version}',downloadFor:'Скачать для',feedback:'Обратная связь',backTop:'Наверх',editorAlt:'Light: редактор и встроенный терминал',modulesAlt:'Каталог языковых модулей Light',lightAlt:'Светлая тема Light',navLabel:'Навигация',langLabel:'Язык',platformLabel:'Платформа',screensLabel:'Скриншоты IDE'
   },
   en: {
-    more:'Details',less:'Close',skip:'Skip to content',title:'Light — an open-source IDE',description:'Light is an open-source IDE with language modules, built-in Git and Linux through WSL.',navFeatures:'Features',getLight:'Get Light',heroLine1:'An open-source IDE',heroLine2:'Modular by design',heroText:'Language modules, Git and Linux<br>in one workspace.',explore:'Take a closer look',featuresLabel:'Features',modulesTitle:'Modules',modulesShort:'Languages for your work.',modulesText:'Add languages, run commands and project templates right in the IDE.',gitTitle:'Git',gitShort:'History without switching.',gitText:'Branches, diffs and commits inside Light. Local snapshots work without Git, too.',linuxTitle:'Linux',linuxShort:'Right inside Windows.',linuxText:'Terminal, builds and runs through WSL. In your project’s context.',workbenchLabel:'Workspace',modulesTab:'Modules',lightTab:'Light theme',documentation:'Documentation',downloadLabel:'Get Light',downloadTitle:'Get Light',architecture:'Processor',releaseFiles:'All files for version 1.0.0',downloadFor:'Download for',feedback:'Feedback',backTop:'Back to top',editorAlt:'Light editor and built-in terminal',modulesAlt:'Light language module catalog',lightAlt:'Light in the light theme',navLabel:'Navigation',langLabel:'Language',platformLabel:'Platform',screensLabel:'IDE screenshots'
+    more:'Details',less:'Close',skip:'Skip to content',title:'Light — an open-source IDE',description:'Light is an open-source IDE with language modules, built-in Git and Linux through WSL.',navFeatures:'Features',getLight:'Get Light',heroLine1:'An open-source IDE',heroLine2:'Modular by design',heroText:'Language modules, Git and Linux<br>in one workspace.',explore:'Take a closer look',featuresLabel:'Features',modulesTitle:'Modules',modulesShort:'Languages for your work.',modulesText:'Add languages, run commands and project templates right in the IDE.',gitTitle:'Git',gitShort:'History without switching.',gitText:'Branches, diffs and commits inside Light. Local snapshots work without Git, too.',linuxTitle:'Linux',linuxShort:'Right inside Windows.',linuxText:'Terminal, builds and runs through WSL. In your project’s context.',workbenchLabel:'Workspace',modulesTab:'Modules',lightTab:'Light theme',documentation:'Documentation',downloadLabel:'Get Light',downloadTitle:'Get Light',architecture:'Processor',releaseFiles:'All files for version {version}',downloadFor:'Download for',feedback:'Feedback',backTop:'Back to top',editorAlt:'Light editor and built-in terminal',modulesAlt:'Light language module catalog',lightAlt:'Light in the light theme',navLabel:'Navigation',langLabel:'Language',platformLabel:'Platform',screensLabel:'IDE screenshots'
   }
 };
-const version='1.0.0';
+let version='1.2.0';
 let language = document.documentElement.lang === 'en' ? 'en' : 'ru';
 let platform = /mac/i.test(navigator.platform) ? 'macos' : /linux/i.test(navigator.platform) && !/android/i.test(navigator.userAgent) ? 'linux' : 'windows';
 function renderPlatform() {
@@ -24,7 +24,7 @@ function renderPlatform() {
 }
 function setLanguage(next) {
   language=next;const t=copy[next];
-  document.querySelectorAll('[data-i18n]').forEach(element=>{element.innerHTML=t[element.dataset.i18n];});
+  document.querySelectorAll('[data-i18n]').forEach(element=>{element.innerHTML=t[element.dataset.i18n].replace('{version}',version);});
   document.querySelectorAll('[data-alt]').forEach(element=>{element.alt=t[element.dataset.alt];});
   document.querySelectorAll('[data-lang]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.lang===next)));
   document.querySelector('nav').setAttribute('aria-label',t.navLabel);
@@ -84,3 +84,20 @@ addEventListener('scroll',()=>{if(!scrollQueued){scrollQueued=true;requestAnimat
 addEventListener('resize',updateScroll);
 reducedMotion.addEventListener('change',updateScroll);
 updateScroll();
+
+// A verified stable release is the download source; the static page remains usable offline.
+async function refreshRelease() {
+  try {
+    const response=await fetch('https://api.github.com/repos/sherhn/Light/releases/latest',{signal:AbortSignal.timeout(6000),headers:{Accept:'application/vnd.github+json'}});
+    if(!response.ok)return;
+    const release=await response.json();
+    if(release.draft||release.prerelease||!/^v\d+\.\d+\.\d+$/.test(release.tag_name))return;
+    const next=release.tag_name.slice(1);
+    const base='https://github.com/sherhn/Light/releases/download/v'+next+'/';
+    const names=['windows-x64-Setup.exe','linux-x64.deb','macos-arm64.dmg','macos-x64.dmg'].map(suffix=>'Light-'+next+'-'+suffix);
+    if(!names.every(name=>release.assets.some(asset=>asset.name===name&&asset.browser_download_url===base+name&&asset.size>0)))return;
+    version=next;setLanguage(language);
+    document.querySelectorAll('[data-i18n="releaseFiles"]').forEach(link=>link.href='https://github.com/sherhn/Light/releases/tag/v'+version);
+  } catch { /* Use the published static fallback when offline or rate-limited. */ }
+}
+refreshRelease();
