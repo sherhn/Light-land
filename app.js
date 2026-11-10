@@ -6,7 +6,7 @@ const copy = {
     more:'Details',less:'Close',skip:'Skip to content',title:'Light — an open-source IDE',description:'Light is an open-source IDE with language modules, built-in Git and Linux through WSL.',navFeatures:'Features',getLight:'Get Light',heroLine1:'An open-source IDE',heroLine2:'Modular by design',heroText:'Language modules, Git and Linux<br>in one workspace.',explore:'Take a closer look',featuresLabel:'Features',modulesTitle:'Modules',modulesShort:'Languages for your work.',modulesText:'Add languages, run commands and project templates right in the IDE.',gitTitle:'Git',gitShort:'History without switching.',gitText:'Branches, diffs and commits inside Light. Local snapshots work without Git, too.',linuxTitle:'Linux',linuxShort:'Right inside Windows.',linuxText:'Terminal, builds and runs through WSL. In your project’s context.',workbenchLabel:'Workspace',modulesTab:'Modules',lightTab:'Light theme',documentation:'Documentation',downloadLabel:'Get Light',downloadTitle:'Get Light',architecture:'Processor',releaseFiles:'All files for version {version}',downloadFor:'Download for',feedback:'Feedback',backTop:'Back to top',editorAlt:'Light editor and built-in terminal',modulesAlt:'Light language module catalog',lightAlt:'Light in the light theme',navLabel:'Navigation',langLabel:'Language',platformLabel:'Platform',screensLabel:'IDE screenshots'
   }
 };
-let version='1.4.0';
+let version='1.5.1';
 let language = document.documentElement.lang === 'en' ? 'en' : 'ru';
 let platform = /mac/i.test(navigator.platform) ? 'macos' : /linux/i.test(navigator.platform) && !/android/i.test(navigator.userAgent) ? 'linux' : 'windows';
 function renderPlatform() {
